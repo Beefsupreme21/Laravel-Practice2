@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ Route::get('/', function () {
 Route::get('/listings/{id}', function ($id) {
     return view('help', [
         'heading' => 'Latest Listings',
-        'listing' => Listing::find(1)
+        'listing' => Listing::find($id)
     ]);
+});
+
+Route::get('/search', function (Request $request) {
+    return $request->name . '' . $request->city;
 });
