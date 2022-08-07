@@ -29,6 +29,14 @@ Route::get('/listings/{id}', function ($id) {
     ]);
 });
 
+Route::get('/help', function ($id) {
+    return view('help', [
+        'heading' => 'Latest Listings',
+        'listing' => Listing::find($id)
+    ]);
+});
+
+
 Route::get('/search', function (Request $request) {
     return $request->name . '' . $request->city;
 });
