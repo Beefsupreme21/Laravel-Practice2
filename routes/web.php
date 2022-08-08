@@ -16,27 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome', [
+    return view('listings', [
         'heading' => 'Latest Listings',
         'listings' => Listing::all()
     ]);
 });
 
 Route::get('/listings/{id}', function ($id) {
-    return view('help', [
-        'heading' => 'Latest Listings',
-        'listing' => Listing::find($id)
-    ]);
-});
-
-Route::get('/help', function ($id) {
-    return view('help', [
-        'heading' => 'Latest Listings',
+    return view('listing', [
         'listing' => Listing::find($id)
     ]);
 });
 
 
-Route::get('/search', function (Request $request) {
-    return $request->name . '' . $request->city;
-});
+// Route::get('/search', function (Request $request) {
+//     return $request->name . '' . $request->city;
+// });
